@@ -1,7 +1,7 @@
 from openpyxl import load_workbook
 from docx import Document
 from docx.shared import Pt
-
+from copy import deepcopy
 # 文件名称可以修改，但必须放在file-converter项目文件夹下，如果不在文件夹下，需要将单引号中文件名改成相对路径的形式
 # 加载Excel文件 input.xlsx
 workbook = load_workbook('input.xlsx')
@@ -9,6 +9,7 @@ sheet = workbook.active
 
 # 加载Word模板 template.docx
 document = Document('template.docx')
+document_path = 'template.docx'
 
 # 获取Excel表格数据
 data = []
@@ -29,7 +30,6 @@ page_index = 0
 # 设置字体样式和大小
 font_name = '楷体'
 font_size = 10.5
-
 
 for row in data:
     target_value = row[headers.index(target_column)]
@@ -55,7 +55,14 @@ for row in data:
             page_index += 1
             if page_index >= len(document.tables):
                 document.add_page_break()
+
                 document.add_table(rows=13, cols=len(headers))
+
+
+
+
+
+
 
 
 # 保存填充后的Word文档
