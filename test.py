@@ -44,25 +44,45 @@ for cell in target_row.cells:
             run._element.rPr.rFonts.set(qn('w:eastAsia'), '等线')
             run.font.size = Pt(10.5)  # 设置字体大小
 
-# start_row_index = 2  # 起始行索引（包含）
-# end_row_index = 15  # 结束行索引（不包含）
-# for row_index, row in enumerate(table.rows):
-#     if start_row_index <= row_index < end_row_index:
-#         for cell in row.cells:
-#             for paragraph in cell.paragraphs:
-#                 for run in paragraph.runs:
-#                     run.font.name = "Arial"
-#                     run._element.rPr.rFonts.set(qn('w:eastAsia'), '楷体')
-#                     run.font.size = Pt(10.5)
-
 # 设置特定行的特定列的字体和字体大小
-# column_index = 1  # 设置要更改字体的列索引
-# target_cell = table.cell(row_index, column_index)
-# for paragraph in target_cell.paragraphs:
-#     for run in paragraph.runs:
-#         run.font.name = 'Arial'  # 设置字体
-#         run.font.size = Pt(12)  # 设置字体大小
+row_index = 0
 
+column_index = 0  # 设置要更改字体的列索引
+target_cell = table.cell(row_index, column_index)
+for paragraph in target_cell.paragraphs:
+    for run in paragraph.runs:
+        # run.font.name = "Arial"
+        run._element.rPr.rFonts.set(qn('w:eastAsia'), '黑体')
+        run.font.size = Pt(10.5)  # 设置字体大小
+
+column_index = 3  # 设置要更改字体的列索引
+target_cell = table.cell(row_index, column_index)
+for paragraph in target_cell.paragraphs:
+    for run in paragraph.runs:
+        run.font.name = "Arial"
+        run._element.rPr.rFonts.set(qn('w:eastAsia'), '等线')
+        run.font.size = Pt(16)  # 设置字体大小
+
+
+column_index = 10
+target_cell = table.cell(row_index, column_index)
+for paragraph in target_cell.paragraphs:
+    for run in paragraph.runs:
+        run.font.name = "Arial"
+        run._element.rPr.rFonts.set(qn('w:eastAsia'), '等线')
+        run.font.size = Pt(10.5)  # 设置字体大小
+
+
+start_row_index = 15  # 起始行索引（包含）
+end_row_index = 18  # 结束行索引（不包含）
+for row_index, row in enumerate(table.rows):
+    if start_row_index <= row_index < end_row_index:
+        for cell in row.cells:
+            for paragraph in cell.paragraphs:
+                for run in paragraph.runs:
+                    run.font.name = "Arial"
+                    run._element.rPr.rFonts.set(qn('w:eastAsia'), '等线')
+                    run.font.size = Pt(12)  # 设置字体大小
 
 
 # 保存新文档
