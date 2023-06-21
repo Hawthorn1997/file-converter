@@ -4,6 +4,7 @@ from docx.shared import Pt
 from docx.oxml.ns import qn
 from docx.shared import Cm
 from copy import deepcopy
+import my_copy
 
 # 文件名称可以修改，但必须放在file-converter项目文件夹下，如果不在文件夹下，需要将单引号中文件名改成相对路径的形式
 # 加载Excel文件 input.xlsx
@@ -60,6 +61,7 @@ for row in data:
                 document.add_page_break()
 
                 document.add_table(rows=13, cols=len(headers))
+                # my_copy.copy_template_to_page(document_path, 'output.docx', )
 
 
 

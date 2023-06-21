@@ -8,7 +8,7 @@ template_path = 'template.docx'
 template_doc = Document(template_path)
 
 # 创建新的 Word 文档
-new_doc = Document()
+new_doc = Document('output.docx')
 
 # 复制原始模板到新文档
 for element in template_doc.element.body:
@@ -26,7 +26,7 @@ for table in new_doc.tables:
                 paragraph.paragraph_format.space_after = Pt(0)
 
 # 设置特定行的字体和字体大小
-table = new_doc.tables[0]  # 假设表格在文档中的索引为0
+table = new_doc.tables[2]  # 表格在文档中的索引
 
 row_index = 1  # 设置要更改字体的行索引
 target_row = table.rows[row_index]
